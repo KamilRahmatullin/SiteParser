@@ -30,7 +30,7 @@ def get_purchases():
 
     # поиск всех покупок на сайте
     soup = BeautifulSoup(driver.page_source, "html.parser")
-    all_purchases = soup.find_all("span", class_="typography_root__e6f5j")
+    all_purchases = soup.find_all(env('FIND_OBJECT'), class_=env('CLASS_URL'))
 
     # распределение покупок по типу покупки
     for purchase in all_purchases:
